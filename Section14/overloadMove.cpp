@@ -10,9 +10,14 @@ class MyString {
     public:
         MyString();
         MyString(const char *s);
+        // Copy Constructor
         MyString(const MyString &src);
         // Copy Assignment
         MyString &operator=(const MyString &rhs);
+        // Move Constructor
+        MyString(MyString &&src);
+        // Move Assignment
+        MyString &operator=(MyString &&rhs);
         ~MyString();
         void display() const;
         int getLength() const;
@@ -35,7 +40,9 @@ MyString::MyString(const char *s) : str{nullptr} {
 }
 
 // Deep Copy constructor
-MyString::MyString(const MyString &src) : MyString{src.str} {}
+MyString::MyString(const MyString &src) : MyString{src.str} {
+    cout << "Deep Copy constructor used" << endl;
+}
 
 // Copy Assignment
 MyString &MyString::operator=(const MyString &rhs) {
@@ -52,8 +59,36 @@ MyString &MyString::operator=(const MyString &rhs) {
     return *this;
 }
 
+// Move Constructor
+MyString::MyString(MyString &&src) : str{src.str} {
+    src.str = nullptr;
+    cout << "Move constructor used" << endl;
+} 
+
+// Move Assignment
+MyString &MyString::operator=(MyString &&rhs) {
+    cout << "Move Assignment" << endl;
+
+    if (this == &rhs) {
+        return *this;
+    }
+
+    delete [] str;
+    str = rhs.str;
+    rhs.str = nullptr;  // null out the rhs object
+    
+    return *this; // return current object
+}
+
 // Destructor
 MyString::~MyString() {
+    if (str == nullptr) {
+        cout << "Calling destructor for MyString : nullptr" << endl;
+    }
+    else {
+        cout << "Calling destructor for: " << *str << endl;
+    }
+
     delete [] str;
 }
 
@@ -70,11 +105,10 @@ const char *MyString::getStr() const {
 }
 
 int main() {
-    MyString a{"Hello"};
-    MyString b;
-    b = a;
+    MyString a{"Hello"};    // Overload constructor
+    a = MyString{"Hola"};   // Overload constructor then move assignment
 
-    b = "This is a test";
+    a = "This is a test";   // Overload constructor then move assignment
 
     MyString empty;
     MyString larry{"Larry"};
