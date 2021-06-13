@@ -3,7 +3,7 @@
  * Movies.h
  * 
  * Models a collection of Movie as a std::vector
- *  implement these methods in Movies.cpp
+ * implement these methods in Movies.cpp
  *
  * ***************************************************************/
 
