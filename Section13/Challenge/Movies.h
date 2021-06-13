@@ -11,14 +11,13 @@
 #define _MOVIES_H_
 
 #include <vector>
-#include <string>
 #include "Movie.h"
 
 class Movies {
         std::vector<Movie> movies;
     public:
         bool incrementWatched(std::string name);
-        bool addMovie(std::string name, std::string rating, int watched);
+        bool addMovie(std::string name, std::string rating, unsigned int watched);
         void display() const;
 };
 

@@ -42,18 +42,18 @@ int main() {
 
 void incrementWatched(Movies &movies, std::string name) {
     if (movies.incrementWatched(name)) {
-        std::cout << name << " watch incremented" <<  std::endl;
+        std::cout << "*** " << name << " watch incremented" <<  std::endl;
     }
     else {
-        std::cout << name << " not found" <<  std::endl;
+        std::cout << "*** " << name << " not found" <<  std::endl;
     }
 }
 
 void addMovie(Movies &movies, std::string name, std::string rating, int watched) {
     if (movies.addMovie(name, rating, watched)) {
-        std::cout << name << " added" << std::endl;
+        std::cout << "** " << name << " added" << std::endl;
     }
     else {
-        std::cout << name << " already exists" <<  std::endl;
+        std::cout << "** " << name << " already exists" <<  std::endl;
     }
 }

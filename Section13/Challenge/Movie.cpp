@@ -12,7 +12,7 @@
 #include <iostream>
 #include "Movie.h"
 
-Movie::Movie(std::string name, std::string rating, int watched)
+Movie::Movie(std::string name, std::string rating, unsigned int watched)
     : name{name}, rating{rating}, watched{watched} {
 }
 
@@ -49,7 +49,9 @@ void Movie::incrementWatched() {
 }
 
 void Movie::display() const {
-    std::cout << "Movie Name: " << name << std::endl;
-    std::cout << "Movie Rating: " << rating << std::endl;
-    std::cout << "Movie Watch Count: " << watched << std::endl;
+    std::cout << "************************************" << std::endl;
+    std::cout << "* Movie Name: " << name << std::endl;
+    std::cout << "* Movie Rating: " << rating << std::endl;
+    std::cout << "* Movie Watch Count: " << watched << std::endl;
+    std::cout << "************************************" << std::endl;
 }

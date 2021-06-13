@@ -11,7 +11,6 @@
 
 #ifndef _MOVIE_H_
 #define _MOVIE_H_
-
 #include <string>
 
 class Movie {
@@ -19,7 +18,7 @@ class Movie {
         std::string rating;
         unsigned int watched;
     public:
-        Movie(std::string name, std::string rating, int watched);
+        Movie(std::string name, std::string rating, unsigned int watched);
         Movie(const Movie &src);
         void setName(std::string name);
         std::string getName() const;
