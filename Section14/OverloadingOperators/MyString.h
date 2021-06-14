@@ -22,7 +22,7 @@ class MyString {
         // Concatenate string
         MyString operator+(const MyString &rhs) const;
         // Check if two strings are equal
-        MyString operator==(const MyString &rhs) const;
+        bool operator==(const MyString &rhs) const;
 
         void display() const;
         int getLength() const;
