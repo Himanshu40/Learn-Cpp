@@ -27,7 +27,7 @@ MyString::MyString(const MyString &src)
 }
 
 // Move constructor
-MyString::MyString( MyString &&src) noexcept
+MyString::MyString(MyString &&src) noexcept
     : str {src.str} {
         src.str = nullptr;
         std::cout << "Move constructor used" << std::endl;
@@ -55,7 +55,7 @@ MyString &MyString::operator=(const MyString &rhs) {
 }
 
 // Move assignment operator
-MyString &MyString::operator=( MyString &&rhs) {
+MyString &MyString::operator=(MyString &&rhs) {
     std::cout << "Using move assignment" << std::endl;
 
     if (this == &rhs) {
