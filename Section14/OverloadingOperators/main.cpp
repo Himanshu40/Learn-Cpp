@@ -10,6 +10,8 @@ int main() {
     
     MyString larry{"Larry"}; 
     MyString moe{"Moe"};
+    MyString noe;
+    noe = "Hello";
     
     MyString stooge = larry;
     larry.display();                                                                      

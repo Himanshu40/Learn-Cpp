@@ -9,7 +9,7 @@ class MyString {
         MyString();
         MyString(const char *s);
         MyString(const MyString &src);
-        MyString(MyString &&src);
+        MyString(MyString &&src) noexcept;
         ~MyString();
 
         // Copy assignment

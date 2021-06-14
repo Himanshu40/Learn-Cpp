@@ -27,7 +27,7 @@ MyString::MyString(const MyString &src)
 }
 
 // Move constructor
-MyString::MyString( MyString &&src) 
+MyString::MyString( MyString &&src) noexcept
     : str {src.str} {
         src.str = nullptr;
         std::cout << "Move constructor used" << std::endl;
