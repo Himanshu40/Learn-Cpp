@@ -8,7 +8,7 @@ int main() {
     MyString larry {"Larry"};
     larry.display();
 
-    larry =  larry;
+    larry =  -larry;
     larry.display();
 
     cout << boolalpha << endl;

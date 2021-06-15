@@ -21,7 +21,7 @@ MyString operator-(const MyString &obj) {
     MyString temp {buff};
     delete [] buff;
 
-    return buff;
+    return temp;
 }
 
 // Concatenate two strings of both objects
@@ -67,6 +67,8 @@ MyString::~MyString() {
 
 
 MyString &MyString::operator=(const MyString &rhs) {
+    std::cout << "Using copy assignment" << std::endl;
+
     if (this == &rhs) {
         return *this;
     }
@@ -80,6 +82,8 @@ MyString &MyString::operator=(const MyString &rhs) {
 }
 
 MyString &MyString::operator=(MyString &&rhs) {
+    std::cout << "Using move assignment" << std::endl;
+
     if (this == &rhs) {
         return *this;
     }
