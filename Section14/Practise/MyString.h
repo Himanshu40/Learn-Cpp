@@ -7,6 +7,8 @@
 class MyString {
     private:
         char *str;
+        friend std::ostream &operator<<(std::ostream &os, const MyString &rhs);
+        friend std::istream &operator>>(std::istream &is, MyString &rhs);
     public:
         MyString();
         MyString(const char *s);
@@ -24,6 +26,11 @@ class MyString {
         MyString &operator+=(const MyString &rhs);
         MyString operator*(unsigned int times) const;
         MyString &operator*=(unsigned int times);
+
+        bool operator==(const MyString &rhs) const;
+        bool operator!=(const MyString &rhs) const;
+        bool operator<(const MyString &rhs) const;
+        bool operator>(const MyString &rhs) const;
 
         void display() const;
 };
