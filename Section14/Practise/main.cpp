@@ -34,7 +34,7 @@ int main() {
     cout << obj1 << endl;
 
     MyString obj3 {"hi"};
-    ++obj3;
+    obj3++;
     // obj3.display();
     cout << obj3 << endl;
 
