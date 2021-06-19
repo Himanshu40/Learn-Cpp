@@ -32,4 +32,5 @@ class MyString {
         bool operator>(const MyString &rhs) const;
 };
 
+
 #endif
