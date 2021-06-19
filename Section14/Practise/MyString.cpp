@@ -35,7 +35,6 @@ MyString::~MyString() {
     else {
         std::cout << "Destructor called for MyString : " << str << std::endl;
     }
-
     
     delete [] str;
 }
@@ -58,7 +57,6 @@ MyString &MyString::operator=(const MyString &rhs) {
 
 MyString &MyString::operator=(MyString &&rhs) noexcept {
     std::cout << "Move assignment called for " << str << std::endl;
-
 
     if (this == &rhs) {
         return *this;
