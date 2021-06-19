@@ -40,6 +40,36 @@ MyString::~MyString() {
 }
 
 
+MyString &MyString::operator=(const MyString &rhs) {
+    std::cout << "Copy assignment called for " << rhs.str << std::endl;
+
+    if (this == &rhs) {
+        return *this;
+    }
+
+    delete [] str;
+
+    str = new char[std::strlen(rhs.str) + 1];
+    std::strcpy(str, rhs.str);
+
+    return *this;
+}
+
+MyString &MyString::operator=(MyString &&rhs) noexcept {
+    std::cout << "Move assignment called for " << rhs.str << std::endl;
+
+    if (this == &rhs) {
+        return *this;
+    }
+
+    delete [] str;
+
+    str = rhs.str;
+    rhs.str = nullptr;
+
+    return *this;
+}
+
 void MyString::display() const {
     std::cout << str << std::endl;
 }

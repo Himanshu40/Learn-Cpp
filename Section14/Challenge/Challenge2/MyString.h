@@ -12,6 +12,9 @@ class MyString {
         MyString(MyString &&src) noexcept;
         ~MyString();
 
+        MyString &operator=(const MyString &rhs);
+        MyString &operator=(MyString &&rhs) noexcept;
+
         void display() const;
 };
 
