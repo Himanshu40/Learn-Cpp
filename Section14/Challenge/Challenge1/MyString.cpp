@@ -2,25 +2,6 @@
 #include "MyString.h"
 
 
-// Overload insertion operator
-std::ostream &operator<<(std::ostream &os, const MyString &rhs) {
-    os << rhs.str;
-    return os;
-}
-
-// Overload extraction operator
-std::istream &operator>>(std::istream &in, MyString &rhs) {
-    char *buff = new char[1000];
-
-    in >> buff;
-    rhs = MyString {buff};
-
-    delete [] buff;
-
-    return in;
-}
-
-
 MyString::MyString() : MyString {nullptr} {
 }
 
@@ -73,6 +54,25 @@ MyString &MyString::operator=(MyString &&rhs) {
     rhs.str = nullptr;
 
     return *this;
+}
+
+
+// Overload insertion operator
+std::ostream &operator<<(std::ostream &os, const MyString &rhs) {
+    os << rhs.str;
+    return os;
+}
+
+// Overload extraction operator
+std::istream &operator>>(std::istream &in, MyString &rhs) {
+    char *buff = new char[1000];
+
+    in >> buff;
+    rhs = MyString {buff};
+
+    delete [] buff;
+
+    return in;
 }
 
 

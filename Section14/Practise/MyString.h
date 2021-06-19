@@ -7,8 +7,6 @@
 class MyString {
     private:
         char *str;
-        friend std::ostream &operator<<(std::ostream &os, const MyString &rhs);
-        friend std::istream &operator>>(std::istream &is, MyString &rhs);
     public:
         MyString();
         MyString(const char *s);
@@ -18,6 +16,9 @@ class MyString {
 
         MyString &operator=(const MyString &rhs);
         MyString &operator=(MyString &&rhs) noexcept;
+
+        friend std::ostream &operator<<(std::ostream &os, const MyString &rhs);
+        friend std::istream &operator>>(std::istream &is, MyString &rhs);
 
         MyString operator-() const;
         MyString &operator++();

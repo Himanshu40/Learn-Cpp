@@ -2,23 +2,6 @@
 #include <cstring>
 
 
-std::ostream &operator<<(std::ostream &os, const MyString &rhs) {
-    os << rhs.str;
-
-    return os;
-}
-
-std::istream &operator>>(std::istream &is, MyString &rhs) {
-    char *buff = new char[100];
-    
-    is >> buff;
-    rhs = MyString {buff};
-    delete [] buff;
-
-    return is;
-}
-
-
 MyString::MyString() : MyString {nullptr} {
     std::cout << "No-Args constructor called" << std::endl;
 }
@@ -85,6 +68,23 @@ MyString &MyString::operator=(MyString &&rhs) noexcept {
     rhs.str = nullptr;
 
     return *this;
+}
+
+
+std::ostream &operator<<(std::ostream &os, const MyString &rhs) {
+    os << rhs.str;
+
+    return os;
+}
+
+std::istream &operator>>(std::istream &is, MyString &rhs) {
+    char *buff = new char[100];
+    
+    is >> buff;
+    rhs = MyString {buff};
+    delete [] buff;
+
+    return is;
 }
 
 
