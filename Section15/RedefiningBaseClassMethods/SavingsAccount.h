@@ -1,5 +1,5 @@
-#ifndef _SAVINGS_ACCOUNT_H_
-#define _SAVINGS_ACCOUNT_H_
+#ifndef _SAVINGSACCOUNT_H_
+#define _SAVINGSACCOUNT_H_
 
 #include "Account.h"
 
