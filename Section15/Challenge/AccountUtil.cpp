@@ -119,3 +119,43 @@ void withdraw(std::vector<CheckingAccount> &acc, double amount) {
         }
     }
 }
+
+
+// Helper functions for Trust Account class
+
+// Displays Trust Account objects in a vector of Trust Account objects
+void display(const std::vector<TrustAccount> &acc) {
+    std::cout << "\n=====Trust Account=====" << std::endl;
+
+    for (const auto &acc1 : acc) {
+        std::cout << acc1 << std::endl;
+    }
+}
+
+// Deposits supplied amount to each Trust Account object in the vector
+void deposit(std::vector<TrustAccount> &acc, double amount) {
+    std::cout << "\n=====Depositing to Trust Acounts=====" << std::endl;
+
+    for (auto &acc1 : acc) {
+        if (acc1.deposit(amount)) {
+            std::cout << "Deposited " << amount << " to " << acc1 << std::endl;
+        }
+        else {
+            std::cout << "Failed Deposit of " << amount << " to " << acc1 << std::endl; 
+        }
+    }
+}
+
+// Withdraw suplied amount from each Trust Account object in the vector
+void withdraw(std::vector<TrustAccount> &acc, double amount) {
+    std::cout << "\n=====Withdrawing from Trust Accounts=====" << std::endl;
+
+    for (auto &acc1 : acc) {
+        if (acc1.withdraw(amount)) {
+            std::cout << "Withdrew " << amount << " from " << acc1 << std::endl;
+        }
+        else {
+            std::cout << "Failed withdrawal " << amount << " from " << acc1 << std::endl;
+        }
+    }
+}

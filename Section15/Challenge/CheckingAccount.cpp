@@ -2,17 +2,17 @@
 
 
 CheckingAccount::CheckingAccount(std::string name, double balance)
-    : Account {name, balance}, withdrawFee {1.50} {
+    : Account {name, balance} {
 }
 
 bool CheckingAccount::withdraw(double amount) {
-    amount += withdrawFee;
+    amount += perCheckFee;
 
     return Account::withdraw(amount);
 }
 
 std::ostream &operator<<(std::ostream &os, const CheckingAccount &acc) {
-    os << "[Checking Account: " << acc.name << ", " << acc.balance << ", $ " << acc.withdrawFee << "]";
+    os << "[Checking Account: " << acc.name << ", " << acc.balance << ", $ " << acc.perCheckFee << "]";
 
     return os;
 }

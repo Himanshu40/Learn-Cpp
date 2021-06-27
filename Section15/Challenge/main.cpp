@@ -1,9 +1,10 @@
 // Section 15 Challenge
 #include <iostream>
 #include <vector>
+#include "AccountUtil.h"
 #include "CheckingAccount.h"
 #include "SavingsAccount.h"
-#include "AccountUtil.h"
+#include "TrustAccount.h"
 
 using namespace std;
 
@@ -49,6 +50,24 @@ int main() {
     deposit(checkAccounts, 1000);
     withdraw(checkAccounts, 2000);
 
+    // Trust Accounts
+
+    vector<TrustAccount> trustAccounts;
+
+    trustAccounts.push_back(TrustAccount {});
+    trustAccounts.push_back(TrustAccount {"Athos", 10000, 5.0});
+    trustAccounts.push_back(TrustAccount {"Porthos", 20000, 4.0});
+    trustAccounts.push_back(TrustAccount {"Aramis", 30000});
+
+    display(trustAccounts);
+    deposit(trustAccounts, 1000);
+    withdraw(trustAccounts, 3000);
+
+    // Withdraw 5 times from each trust account
+    // All withdrawals should fail if there are too many withdrawals or if the withdrawal is > 20% of the balance
+    for (int i {1}; i <= 5; ++i) {
+        withdraw(trustAccounts, 1000);
+    }
 
     return 0;
 }
