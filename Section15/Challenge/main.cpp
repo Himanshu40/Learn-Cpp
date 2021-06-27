@@ -1,6 +1,7 @@
 // Section 15 Challenge
 #include <iostream>
 #include <vector>
+#include "CheckingAccount.h"
 #include "SavingsAccount.h"
 #include "AccountUtil.h"
 
@@ -10,7 +11,7 @@ int main() {
     cout.precision(2);
     cout << fixed;
 
-    // Acoounts
+    // Accounts
     vector<Account> accounts;
     
     accounts.push_back(Account {});
@@ -34,6 +35,20 @@ int main() {
     display(savAccounts);
     deposit(savAccounts, 1000);
     withdraw(savAccounts, 2000);
+
+    // Checking Accounts
+
+    vector<CheckingAccount> checkAccounts;
+
+    checkAccounts.push_back(CheckingAccount {});
+    checkAccounts.push_back(CheckingAccount {"Himanshu"});
+    checkAccounts.push_back(CheckingAccount {"Chandrakant", 2000});
+    checkAccounts.push_back(CheckingAccount {"Sabyasachi", 5000});
+
+    display(checkAccounts);
+    deposit(checkAccounts, 1000);
+    withdraw(checkAccounts, 2000);
+
 
     return 0;
 }
