@@ -6,13 +6,13 @@
 
 class TrustAccount : public SavingsAccount {
     private:
-        static constexpr const char *defName = "Unnamed Trust Account";
-        static constexpr double      defBalance = 0.0;
-        static constexpr double      defIntRate = 0.0;
-        static constexpr double      bonusAmount = 50.0;
-        static constexpr double      bonusThreshold = 5000.00;
+        static constexpr const char *defName            = "Unnamed Trust Account";
+        static constexpr double      defBalance         = 0.0;
+        static constexpr double      defIntRate         = 0.0;
+        static constexpr double      bonusAmount        = 50.0;
+        static constexpr double      bonusThreshold     = 5000.00;
         static constexpr double      maxWithdrawPercent = 0.2;
-        static constexpr int         maxWithdrawals = 3;
+        static constexpr int         maxWithdrawals     = 3;
         friend std::ostream &operator<<(std::ostream &os, const TrustAccount &acc);
     protected:
         int withdrawalTimes;
