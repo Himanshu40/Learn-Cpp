@@ -4,7 +4,6 @@
 
 
 class Trust_Account : public Savings_Account {
-        friend std::ostream &operator<<(std::ostream &os, const Trust_Account &account);
     private:
         static constexpr const char *def_name = "Unnamed Trust Account";
         static constexpr double def_balance = 0.0;
@@ -19,10 +18,13 @@ class Trust_Account : public Savings_Account {
         Trust_Account(std::string name = def_name,  double balance = def_balance, double int_rate = def_int_rate);
     
         // Deposits of $5000.00 or more will receive $50 bonus
-        bool deposit(double amount);
+        virtual bool deposit(double amount) override;
     
         // Only allowed maximum of 3 withdrawals, each can be up to a maximum of 20% of the account's value
-        bool withdraw(double amount);
+        virtual bool withdraw(double amount) override;
+
+        virtual void print(std::ostream &os) const override;
+        virtual ~Trust_Account() = default;
 };
 
 
