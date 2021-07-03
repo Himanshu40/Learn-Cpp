@@ -14,7 +14,7 @@ int main() {
     Checking_Account frank {"Frank", 5000};
     cout << frank << endl;
 
-    // Account acc;                 // SHould not compile
+    // Account acc;                 // Should not compile
     // cout << acc << endl;
     
     Account *trust = new Trust_Account("James");
@@ -29,6 +29,11 @@ int main() {
     display(accounts);
     deposit(accounts, 1000);
     withdraw(accounts, 2000);
+
+    delete trust;
+    delete p1;
+    delete p2;
+    delete p3;
 
     return 0;
 }
