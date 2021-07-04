@@ -20,11 +20,11 @@ Move::Move(int d) {
     cout << "Constructor for: " << d << endl;
 }
 
-Move::Move(const Move &src) : Move{*src.data} {
+Move::Move(const Move &src) : Move {*src.data} {
     cout << "Constructor deep copy for: " << *data << endl;
 }
 
-Move::Move(Move &&src) noexcept : data{src.data} {
+Move::Move(Move &&src) noexcept : data {src.data} {
     src.data = nullptr;
     cout << "Move Constructor for: " << *data << endl;
 }
@@ -47,11 +47,12 @@ void display(Move obj) {
 int main() {
     vector<Move> vec;
 
-    // // Temporary objects which are unamed so they are R-Values
+    // Temporary objects which are unamed so they are R-Values
     vec.push_back(Move{10});
-    //vec.push_back(Move{20});
-    // vec.push_back(Move{30});
-    // vec.push_back(Move{40});
+    vec.push_back(Move{20});
+    vec.push_back(Move{30});
+    vec.push_back(Move{40});
+    vec.push_back(Move{50});
 
     return 0;
 }
