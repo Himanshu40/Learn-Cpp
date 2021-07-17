@@ -11,7 +11,7 @@ int main() {
         return 1;
     }
 
-    std::ofstream outFile {"romieandjulietLine.txt"};
+    std::ofstream outFile {"romeoandjulietLine.txt"};
 
     if (!outFile) {
         std::cerr << "Error creating file" << std::endl;
@@ -27,7 +27,7 @@ int main() {
             ++lineNum;
         }
         else {
-            outFile << line << std::endl;
+            outFile << std::endl;
         }
     }
 
