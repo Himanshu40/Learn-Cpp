@@ -227,16 +227,55 @@ void test9() {
     display(vec2);
 }
 
+void test10() {
+    std::cout << "\n===TEST10===" << std::endl;
+    
+    // Transform over 2 ranges
+    std::vector<int> vec1 {1, 2, 3, 4, 5};
+    std::vector<int> vec2 {10, 20, 30, 40, 50};
+    std::vector<int> vec3;
+
+    std::transform(vec1.begin(), vec1.end(), vec2.begin(), std::back_inserter(vec3),
+        [](int x, int y) {return x * y;});
+
+    display(vec3);
+}
+
+void test11() {
+    std::cout << "\n===TEST11===" << std::endl;
+
+    std::vector<int> vec1 {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::vector<int> vec2 {100, 200, 300, 400};
+
+    display(vec1);
+    display(vec2);
+    std::cout << std::endl;
+
+    auto it = std::find(vec1.begin(), vec1.end(), 5);
+
+    if (it != vec1.end()) {
+        std::cout << "Inserting..." << std::endl;
+        vec1.insert(it, vec2.begin(), vec2.end());
+    }
+    else {
+        std::cout << "Sorry, 5 not found" << std::endl;
+    }
+
+    display(vec1);
+}
+
 int main() {
-    // test1();
-    // test2();
-    // test3();
-    // test4();
-    // test5();
-    // test6();
-    // test7();
-    // test8();
+    test1();
+    test2();
+    test3();
+    test4();
+    test5();
+    test6();
+    test7();
+    test8();
     test9();
+    test10();
+    test11();
 
     return 0;
 }
