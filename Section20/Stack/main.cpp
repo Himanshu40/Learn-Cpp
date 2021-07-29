@@ -45,7 +45,7 @@ int main() {
     s.push(10);
     display(s);
 
-    s.top() = 100;
+    s.top() = 100;                  // s.top() returns a reference
     display(s);
 
     return 0;
