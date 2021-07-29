@@ -10,8 +10,9 @@ bool isPalindrome(const std::string &s) {
     std::deque<char> compare1;
     std::deque<char> compare2;
 
-    std::copy_if(s.begin(), s.end(), std::back_inserter(compare1),
-        [](char c) {if (std::isalpha(c)) {return std::toupper(c);} return 0;});
+    std::for_each(s.begin(), s.end(), [&compare1](char c) {
+        if (std::isalpha(c)) {compare1.push_back(std::toupper(c));}
+    });
 
     std::copy(compare1.begin(), compare1.end(), std::front_inserter(compare2));
 
