@@ -44,5 +44,15 @@ int main() {
     q.push(1000);
     display(q);
 
+    std::cout << "Front: " << q.front() << std::endl;
+    std::cout << "Back: " << q.back() << std::endl;
+
+    q.front() = 5;
+    q.back() = 5000;
+    display(q);
+
+    std::cout << "Front: " << q.front() << std::endl;
+    std::cout << "Back: " << q.back() << std::endl;
+    
     return 0;
 }
