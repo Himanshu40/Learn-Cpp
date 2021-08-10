@@ -96,7 +96,18 @@ class People {
         }
 
         // This method returns a vector of Person objects in
-        // people whose age
+        // people whose age > max_age AND it limits the number of
+        // persons returned to be <= the member variable max_people
+        // Note that the lambda in this example captures this, by reference, and by value
+        std::vector<Person> getPeople(int maxAge) {
+            std::vector<Person> result;
+            int count {0};
+
+            std::copy_if(people.begin(), people.end(), std::back_inserter(result),
+                [this, &count, maxAge](const Person &p) {return (p.getAge() > maxAge) && (++count <= maxPeople);});
+
+            return result;
+        }
 };
 
 // Capture by value
@@ -292,19 +303,48 @@ void test9() {
 
 
 void test10() {
+    std::cout << "===TEST10===" << std::endl;
 
+    People friends;
+    friends.add("Larry", 18);
+    friends.add("Curly", 25);
+    friends.add("Moe", 35);
+    friends.add("Frank", 28);
+    friends.add("James", 65);
+
+    auto result = friends.getPeople(17);
+
+    std::cout << std::endl;
+    for (const auto &p : result) {
+        std::cout << p << std::endl;
+    }
+
+    friends.setMaxPeople(3);
+    result = friends.getPeople(17);
+
+    std::cout << std::endl;
+    for (const auto &p : result) {
+        std::cout << p << std::endl;
+    }
+
+    result = friends.getPeople(50);
+
+    std::cout << std::endl;
+    for (const auto &p : result) {
+        std::cout << p << std::endl;
+    }
 }
 
 int main() {
-    // test1();
-    // test2();
-    // test3();
-    // test4();
-    // test5();
-    // test6();
-    // test7();
-    // test8();
-    // test9();
+    test1();
+    test2();
+    test3();
+    test4();
+    test5();
+    test6();
+    test7();
+    test8();
+    test9();
     test10();
 
     return 0;
