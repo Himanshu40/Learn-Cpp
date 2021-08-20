@@ -106,6 +106,9 @@ std::istream &operator>>(std::istream &is, State &state) {
 void test1() {
     std::cout << "===TEST1===" << std::endl;
 
+    Direction x;
+    std::cout << x << std::endl;            // Gives random number everytime it run
+
     Direction direction {North};
     std::cout << "\nDirection " << direction << std::endl;
     std::cout << directionToString(direction) << std::endl;
